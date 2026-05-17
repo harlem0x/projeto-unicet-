@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plano de Atividade de Extensão – UNI-CET</title>
+  <style>
+    /* --- RESET & PRINT BASICS --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10pt;
+      color: #000;
+      background-color: #c8c8c8;
+      line-height: 1.4;
+    }
+    
+    /* --- GERAL CONFIGURAÇÃO A4 --- */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      padding: 18mm 20mm;
+      margin: 12mm auto;
+      background-color: #ffffff;
+      position: relative;
+      page-break-after: always;
+      overflow: hidden;
+      border: 2px solid #000;
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      border: 1px solid #000;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+      }
+      .page {
+        margin: 0;
+        border: 2px solid #000;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+
+    /* --- CABEÇALHO INSTITUCIONAL --- */
+    .header-container {
+      display: flex;
+      align-items: center;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .header-text h2 {
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* --- TITULOS --- */
+    .doc-title-container {
+      text-align: center;
+      margin: 10px 0 15px;
+    }
+    .doc-title {
+      font-size: 11.5pt;
+      font-weight: bold;
+      border: 1.5px solid #000;
+      padding: 5px;
+      display: inline-block;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 2px;
+      margin: 16px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .subsection-title {
+      font-size: 10pt;
+      font-weight: bold;
+      margin: 12px 0 6px 0;
+      text-transform: uppercase;
+      color: #111;
+      border-left: 3px solid #000;
+      padding-left: 6px;
+    }
+
+    /* --- CAMPOS DE ENTRADA / LINHAS DE FORMULÁRIO --- */
+    .form-row {
+      display: flex;
+      margin: 8px 0;
+      align-items: flex-end;
+    }
+    .form-label {
+      font-weight: bold;
+      font-size: 9.5pt;
+      margin-right: 6px;
+      white-space: nowrap;
+    }
+    .form-line {
+      flex-grow: 1;
+      border-bottom: 1px solid #000;
+      min-height: 18px;
+      font-size: 10pt;
+      padding-left: 4px;
+    }
+    .form-block-container {
+      margin: 8px 0;
+    }
+    .form-value-block {
+      width: 100%;
+      border: 1px solid #000;
+      height: 200px;
+      padding: 8px;
+      font-size: 10pt;
+      margin-top: 4px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    /* --- TABELAS --- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+    table th, table td {
+      border: 1px solid #000;
+      padding: 5px 6px;
+      font-size: 9.5pt;
+      vertical-align: top;
+    }
+    table th {
+      background-color: #d9d9d9;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+
+    /* --- AUTENTICAÇÃO & DATA --- */
+    .date-row {
+      margin: 25px 0;
+      font-size: 10pt;
+    }
+    .sig-wrapper {
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .sig-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sig-line {
+      width: 65%;
+      border-bottom: 1px solid #000;
+      margin-bottom: 4px;
+    }
+    .sig-label {
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* --- BLOCOS DE PARECER TÉCNICO --- */
+    .parecer-card {
+      border: 1.5px solid #000;
+      margin-bottom: 12px;
+    }
+    .parecer-title {
+      background-color: #d9d9d9;
+      border-bottom: 1px solid #000;
+      padding: 4px 6px;
+      font-weight: bold;
+      font-size: 9.5pt;
+      text-align: center;
+    }
+    .parecer-inner {
+      padding: 8px 12px;
+    }
+    .parecer-field {
+      font-weight: bold;
+      font-size: 9.5pt;
+      margin-bottom: 3px;
+    }
+    .parecer-lines {
+      min-height: 45px;
+      border: 1px dashed #999;
+      padding: 4px;
+      font-size: 9.5pt;
+      margin-bottom: 6px;
+    }
+    .parecer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 9pt;
+      margin-top: 4px;
+    }
+    .parecer-sig {
+      width: 180px;
+      border-top: 1px solid #000;
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    .nde-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 25px;
+      margin-top: 10px;
+    }
+    .nde-line-item {
+      display: flex;
+      align-items: flex-end;
+    }
+    .nde-border {
+      flex-grow: 1;
+      border-bottom: 1px solid #000;
+      margin-left: 5px;
+      min-height: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="doc-title-container">
+      <div class="doc-title">PLANO DE ATIVIDADE DE EXTENSÃO</div>
+    </div>
+
+    <div class="form-row" style="margin-bottom: 15px;">
+      <div class="form-label">TIPO DE EXTENSÃO:</div>
+      <div class="form-line" style="font-weight: bold; font-size: 10.5pt;">{{tipo_extensao_selecionada}}</div>
+    </div>
+
+    <div class="section-title">I- IDENTIFICAÇÃO</div>
+
+    <div class="form-row">
+      <div class="form-label">TÍTULO:</div>
+      <div class="form-line">{{titulo}}</div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-label">LINHA PROGRAMÁTICA / PROGRAMA:</div>
+      <div class="form-line">{{linha_programatica_selecionada}}</div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-label">TIPO DE AÇÃO:</div>
+      <div class="form-line">{{tipo_acao_selecionado}}</div>
+    </div>
+
+    <div class="section-title" style="margin-top: 20px;">INSTITUIÇÃO(ÕES) ENVOLVIDA(AS)</div>
+    {{#instituicao_publica_nome}}
+    <div class="form-row">
+      <div class="form-label">PÚBLICA:</div>
+      <div class="form-line">{{instituicao_publica_nome}}</div>
+    </div>
+    {{/instituicao_publica_nome}}
+    {{#instituicao_privada_nome}}
+    <div class="form-row">
+      <div class="form-label">PRIVADA:</div>
+      <div class="form-line">{{instituicao_privada_nome}}</div>
+    </div>
+    {{/instituicao_privada_nome}}
+
+    <div style="margin-top: 25px;">
+      <div class="form-row"><div class="form-label">COORDENADOR RESPONSÁVEL:</div><div class="form-line">{{coordenador}}</div></div>
+      <div class="form-row"><div class="form-label">PROFESSORES E TÉCNICOS ENVOLVIDOS:</div><div class="form-line">{{professores_envolvidos}}</div></div>
+      <div class="form-row"><div class="form-label">CURSOS ENVOLVIDOS:</div><div class="form-line">{{cursos_envolvidos}}</div></div>
+      <div class="form-row"><div class="form-label">PERÍODO DE REALIZAÇÃO:</div><div class="form-line">{{periodo_inicio}} à {{periodo_fim}}</div></div>
+      <div class="form-row"><div class="form-label">LOCAL DE EXECUÇÃO:</div><div class="form-line">{{local_execucao}}</div></div>
+      <div class="form-row"><div class="form-label">CARGA HORÁRIA TOTAL:</div><div class="form-line">{{carga_horaria}}</div></div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="form-row" style="margin-bottom: 15px;">
+      <div class="form-label">PÚBLICO-ALVO:</div>
+      <div class="form-line" style="font-weight: bold;">{{publico_alvo_selecionado}}</div>
+    </div>
+
+    <div class="section-title">II- OBJETIVO(S)</div>
+    <div class="form-block-container">
+      <div class="form-value-block">{{objetivos}}</div>
+    </div>
+
+    <div class="section-title">III- METODOLOGIA</div>
+    <div class="form-block-container">
+      <div class="form-value-block" style="height: 220px;">{{metodologia}}</div>
+    </div>
+
+    <div class="section-title">IV- CRONOGRAMA DE ATIVIDADES E AÇÕES</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 6%;">Nº</th>
+          <th style="width: 54%;">Etapa</th>
+          <th style="width: 14%;">Data</th>
+          <th style="width: 11%;">Hora</th>
+          <th style="width: 15%;">Local</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">1</td>
+          <td>Envio do Projeto de Extensão para a Coordenação do Curso</td>
+          <td class="text-center">{{dt_envio_projeto}}</td>
+          <td class="text-center">{{hr_envio_projeto}}</td>
+          <td>{{lc_envio_projeto}}</td>
+        </tr>
+        {{#cronograma}}
+        <tr>
+          <td class="text-center">{{cronograma_num}}</td>
+          <td>{{cronograma_etapa}}</td>
+          <td class="text-center">{{cronograma_data}}</td>
+          <td class="text-center">{{cronograma_hora}}</td>
+          <td>{{cronograma_local}}</td>
+        </tr>
+        {{/cronograma}}
+        <tr>
+          <td class="text-center">10</td>
+          <td>Envio dos Relatório de Extensão para a Coordenação do Curso</td>
+          <td class="text-center">{{dt_envio_relatorio}}</td>
+          <td class="text-center">{{hr_envio_relatorio}}</td>
+          <td>{{lc_envio_relatorio}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="section-title">V- CUSTOS DO PROJETO</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 8%;">Item nº</th>
+          <th style="width: 35%;">Descrição da Despesa</th>
+          <th style="width: 10%;">Quantidade</th>
+          <th style="width: 15%;">Valor Unitário (R$)</th>
+          <th style="width: 15%;">Valor Total (R$)</th>
+          <th style="width: 17%;">Justificativa</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#custos}}
+        <tr>
+          <td class="text-center{{custo_num}}"></td>
+          <td>{{custo_descricao}}</td>
+          <td class="text-center">{{custo_quantidade}}</td>
+          <td class="text-right">{{custo_unitario}}</td>
+          <td class="text-right">{{custo_total}}</td>
+          <td>{{custo_justificativa}}</td>
+        </tr>
+        {{/custos}}
+        <tr>
+          <td colspan="4" class="text-right" style="font-weight: bold; padding-right: 8px;">Total Geral</td>
+          <td class="text-right" style="font-weight: bold;">{{total_geral}}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="subsection-title" style="margin-top: 15px;">Fonte de Recursos:</div>
+    <div class="form-line" style="min-height: 24px; margin-bottom: 20px;">{{fonte_recursos}}</div>
+
+    <div class="section-title">VI- RESULTADOS ESPERADOS</div>
+    <div class="form-block-container">
+      <div class="form-value-block" style="height: 180px;">{{resultados_esperados}}</div>
+    </div>
+
+    <div class="section-title">VII- AVALIAÇÃO</div>
+    <div class="form-block-container">
+      <div class="form-value-block" style="height: 180px;">{{avaliacao_metodo}}</div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="section-title" style="text-align: center; border: 1px solid #000; padding: 4px;">
+      VIII- RESULTADOS ALCANÇADOS (INDICADORES QUALITATIVOS E QUANTITATIVOS)
+    </div>
+    <div class="doc-title-container" style="margin: 5px 0 15px 0;">
+      <div class="doc-title" style="font-size: 10pt; padding: 4px; border-width: 1px;">QUESTIONÁRIO DE AVALIAÇÃO DE IMPACTO DA AÇÃO EXTENSIONISTA</div>
+    </div>
+
+    <div style="margin: 10px 0; font-size: 10pt;">
+      <div class="form-row"><div class="form-label">Nome da Ação Extensionista:</div><div class="form-line">{{q_nome_acao}}</div></div>
+      <div class="form-row"><div class="form-label">Instituição:</div><div class="form-line">{{q_instituicao}}</div></div>
+      <div class="form-row"><div class="form-label">Data da realização:</div><div class="form-line">{{q_data_realizacao}}</div></div>
+      <div class="form-row"><div class="form-label">Tipo de ação selecionada:</div><div class="form-line" style="font-weight: bold;">{{q_tipo_acao_selecionada}}</div></div>
+      <div class="form-row"><div class="form-label">Local de realização:</div><div class="form-line">{{q_local_realizacao}}</div></div>
+    </div>
+
+    <div class="section-title" style="margin-top: 20px;">1. Perfil dos participantes</div>
+    <div class="form-row"><div class="form-label">1.1. Faixa etária selecionada:</div><div class="form-line">{{faixa_etaria_selecionada}}</div></div>
+    <div class="form-row"><div class="form-label">1.2. Escolaridade selecionada:</div><div class="form-line">{{escolaridade_selecionada}}</div></div>
+    <div class="form-row"><div class="form-label">1.3. Reside na comunidade/localidade atendida?</div><div class="form-line">{{reside_comunidade_selecionado}}</div></div>
+
+    <div class="section-title" style="margin-top: 20px;">2. Avaliação da Ação Extensionista</div>
+    <div class="form-row"><div class="form-label">2.1. Avaliação dos conteúdos/aprendizados oferecidos:</div><div class="form-line">{{aval_conteudos_selecionado}}</div></div>
+    <div class="form-row"><div class="form-label">2.2. A ação atendeu às suas expectativas?</div><div class="form-line">{{aval_expectativas_selecionado}}</div></div>
+    <div class="form-row"><div class="form-label">2.3. Os facilitadores/professores/orientadores foram claros e acessíveis?</div><div class="form-line">{{aval_facilitadores_selecionado}}</div></div>
+    <div class="form-row"><div class="form-label">2.4. Houve espaço para escuta e participação da comunidade?</div><div class="form-line">{{aval_escuta_selecionado}}</div></div>
+    <div class="form-row"><div class="form-label">2.5. A estrutura e organização da ação foram adequadas?</div><div class="form-line">{{aval_estrutura_selecionado}}</div></div>
+  </div>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="section-title">3. Percepção de Impacto na Sua Vida / Comunidade</div>
+    <div class="form-row"><div class="form-label">3.1. Após participar da ação, sente-se mais capacitado(a) ou informado(a)?</div><div class="form-line">{{imp_capacitacao_selecionado}}</div></div>
+    <div class="form-row"><div class="form-label">3.2. A ação contribuiu para melhorar algum aspectoda sua vida?</div><div class="form-line">{{imp_vida_selecionado}}</div></div>
+    {{#imp_vida_qual}}
+    <div class="form-row"><div class="form-label" style="padding-left: 15px;">Descrição do aspecto melhorado:</div><div class="form-line">{{imp_vida_qual}}</div></div>
+    {{/imp_vida_qual}}
+    <div class="form-row"><div class="form-label">3.3. Pretende aplicar os conhecimentos adquiridos na sua rotina?</div><div class="form-line">{{imp_aplicacao_selecionado}}</div></div>
+    {{#imp_con_porque}}
+    <div class="form-row"><div class="form-label" style="padding-left: 15px;">Justificativa / Motivo:</div><div class="form-line">{{imp_con_porque}}</div></div>
+    {{/imp_con_porque}}
+    <div class="form-row"><div class="form-label">3.4. Você recomendaria essa ação para outras pessoas?</div><div class="form-line">{{imp_recomendacao_selecionado}}</div></div>
+
+    <div class="subsection-title">4. Sugestões e Comentários (Avaliação Qualitativa)</div>
+    <div style="margin: 6px 0;">
+      <p style="font-size: 9.5pt; font-weight: bold;">4.1. O que você mais gostou na ação?</p>
+      <div class="form-line" style="min-height: 28px; margin-top: 2px;">{{sug_mais_gostou}}</div>
+    </div>
+    <div style="margin: 6px 0;">
+      <p style="font-size: 9.5pt; font-weight: bold;">4.2. O que poderia ser melhorado?</p>
+      <div class="form-line" style="min-height: 28px; margin-top: 2px;">{{sug_melhorado}}</div>
+    </div>
+    <div style="margin: 6px 0;">
+      <p style="font-size: 9.5pt; font-weight: bold;">4.3. Deseja sugerir outras ações ou temas para futuras atividades?</p>
+      <div class="form-line" style="min-height: 28px; margin-top: 2px;">{{sug_futuras}}</div>
+    </div>
+
+    <div class="subsection-title">5. Consentimento</div>
+    <div class="form-row">
+      <div class="form-label" style="font-weight: normal;">Autoriza o uso das informações garantindo o anonimato?</div>
+      <div class="form-line" style="font-weight: bold;">{{consentimento_selecionado}}</div>
+    </div>
+
+    <div class="section-title">IX - REFERÊNCIAS</div>
+    <div class="form-line" style="min-height: 35px; margin-bottom: 15px;">{{referencias}}</div>
+
+    <div class="section-title">X- AUTENTICAÇÃO</div>
+    <div class="date-row">
+      Teresina, <span style="border-bottom: 1px solid #000; min-width: 35px; display: inline-block; text-align: center;">{{autenticacao_dia}}</span> de <span style="border-bottom: 1px solid #000; min-width: 90px; display: inline-block; text-align: center;">{{autenticacao_mes}}</span> de 20<span style="border-bottom: 1px solid #000; min-width: 30px; display: inline-block; text-align: center;">{{autenticacao_ano}}</span>.
+    </div>
+
+    <div class="sig-wrapper">
+      <div class="sig-container">
+        <div class="sig-line"></div>
+        <div class="sig-label">Docente responsável</div>
+      </div>
+      <div class="sig-container">
+        <div class="sig-line"></div>
+        <div class="sig-label">Coordenador(a) de Curso responsável</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="doc-title-container" style="margin-bottom: 15px;">
+      <div class="doc-title" style="font-size: 11pt; padding: 4px;">PARECER TÉCNICO</div>
+    </div>
+
+    <div class="parecer-card">
+      <div class="parecer-title">PRÓ-REITORIA DE PÓS-GRADUAÇÃO, PESQUISA, EXTENSÃO E CURSOS LIVRES</div>
+      <div class="parecer-inner">
+        <div class="parecer-field">PARECER:</div>
+        <div class="parecer-lines">{{parecer_posgraduacao}}</div>
+        <div class="parecer-meta">
+          <div>Teresina, de de 20<span>{{parecer_posgraduacao_ano}}</span>.</div>
+          <div class="parecer-sig">Assinatura</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parecer-card">
+      <div class="parecer-title">PRÓ-REITORIA EXECUTIVA DE ADMINISTRAÇÃO, INOVAÇÃO E TECNOLOGIA</div>
+      <div class="parecer-inner">
+        <div class="parecer-field">PARECER:</div>
+        <div class="parecer-lines">{{parecer_administricao}}</div>
+        <div class="parecer-meta">
+          <div>Teresina, de de 20<span>{{parecer_administricao_ano}}</span>.</div>
+          <div class="parecer-sig">Assinatura</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parecer-card">
+      <div class="parecer-title">PRÓ-REITORIA DE ENSINO DE GRADUAÇÃO E APRENDIZAGEM, CULTURA, RELAÇÃO COMUNITÁRIA E RESPONSABILIDADE SOCIAL</div>
+      <div class="parecer-inner">
+        <div class="parecer-field">PARECER:</div>
+        <div class="parecer-lines">{{parecer_ensino}}</div>
+        <div class="parecer-meta">
+          <div>Teresina, de de 20<span>{{parecer_ensino_ano}}</span>.</div>
+          <div class="parecer-sig">Assinatura</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parecer-card" style="margin-bottom: 0;">
+      <div class="parecer-title">GERÊNCIA DE PESQUISA, EXTENSÃO E CURSOS LIVRES</div>
+      <div class="parecer-inner">
+        <div class="parecer-field">PARECER:</div>
+        <div class="parecer-lines">{{parecer_gerencia}}</div>
+        <div class="parecer-meta">
+          <div>Teresina, de de 20<span>{{parecer_gerencia_ano}}</span>.</div>
+          <div class="parecer-sig">Assinatura</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET Centro Universitário" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA – CET</h1>
+        <h2>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA – UNI-CET</h2>
+      </div>
+    </div>
+
+    <div class="parecer-card">
+      <div class="parecer-title">COORDENADORIA DO NÚCLEO DE APOIO PEDAGÓGICO - NAP</div>
+      <div class="parecer-inner">
+        <div class="parecer-field">PARECER:</div>
+        <div class="parecer-lines" style="min-height: 70px;">{{parecer_nap}}</div>
+        <div class="parecer-meta">
+          <div>Teresina, de de 20<span>{{parecer_nap_ano}}</span>.</div>
+          <div class="parecer-sig">Assinatura</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parecer-card" style="margin-bottom: 0;">
+      <div class="parecer-title">NÚCLEO DOCENTE ESTRUTURANTE - NDE</div>
+      <div class="parecer-inner">
+        <div class="parecer-field">PARECER:</div>
+        <div class="parecer-lines" style="min-height: 80px;">{{parecer_nde}}</div>
+        
+        <div style="font-size: 9.5pt; margin: 12px 0 5px 0;">
+          Teresina, de de 20<span>{{parecer_nde_ano}}</span>.
+        </div>
+        
+        <div class="parecer-field" style="margin-top: 20px; margin-bottom: 5px;">Assinaturas:</div>
+        <div class="nde-grid">
+          <div class="nde-line-item"><span>1.</span><div class="nde-border">{{assinatura_nde_1}}</div></div>
+          <div class="nde-line-item"><span>2.</span><div class="nde-border">{{assinatura_nde_2}}</div></div>
+          <div class="nde-line-item"><span>3.</span><div class="nde-border">{{assinatura_nde_3}}</div></div>
+          <div class="nde-line-item"><span>4.</span><div class="nde-border">{{assinatura_nde_4}}</div></div>
+          <div class="nde-line-item" style="grid-column: span 2; width: 50%; margin: 8px auto 0 auto;"><span>5.</span><div class="nde-border">{{assinatura_nde_5}}</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
