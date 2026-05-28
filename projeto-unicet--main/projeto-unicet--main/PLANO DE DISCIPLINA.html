@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plano de Disciplina - {{disciplina_nome}}</title>
+  <style>
+    /* --- RESET & PRINT BASICS --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10pt;
+      color: #000;
+      background-color: #c8c8c8;
+      line-height: 1.4;
+    }
+    
+    /* --- CONFIGURAÇÃO RÍGIDA A4 --- */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      padding: 18mm 20mm;
+      margin: 12mm auto;
+      background-color: #ffffff;
+      position: relative;
+      page-break-after: always;
+      overflow: hidden;
+      border: 2px solid #000;
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      border: 1px solid #000;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+      }
+      .page {
+        margin: 0;
+        border: 2px solid #000;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+
+    /* --- CABEÇALHO INSTITUCIONAL --- */
+    .header-container {
+      display: flex;
+      align-items: center;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 9.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .header-text h2 {
+      font-size: 8.5pt;
+      font-weight: normal;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* --- TITULOS --- */
+    .doc-title-container {
+      text-align: center;
+      margin: 10px 0 15px;
+    }
+    .doc-title {
+      font-size: 11.5pt;
+      font-weight: bold;
+      border: 1.5px solid #000;
+      padding: 5px;
+      display: inline-block;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: bold;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 2px;
+      margin: 14px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* --- GRID DE IDENTIFICAÇÃO --- */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 15px;
+      margin-bottom: 12px;
+    }
+    .info-item {
+      display: flex;
+      font-size: 9.5pt;
+    }
+    .info-label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    .info-value {
+      flex-grow: 1;
+    }
+
+    /* --- TEXTOS E LISTAS --- */
+    p {
+      font-size: 9.5pt;
+      text-align: justify;
+      margin-bottom: 8px;
+    }
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 8px;
+      font-size: 9.5pt;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+
+    .unit-title {
+      font-weight: bold;
+      margin-top: 8px;
+      font-size: 9.5pt;
+    }
+
+    /* --- FOOTER REGULAR DAS PÁGINAS 1 E 2 --- */
+    .page-footer {
+      position: absolute;
+      bottom: 15px;
+      left: 20mm;
+      right: 20mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      border-top: 1px solid #aaa;
+      padding-top: 4px;
+    }
+
+    /* --- ESTILIZAÇÃO DO RODAPÉ DE AUTENTICAÇÃO (IGUAL À IMAGEM) --- */
+    .autenticacao-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+      padding: 0 5mm;
+    }
+    .auth-logo {
+      width: 105px;
+      height: auto;
+    }
+    .auth-centro {
+      text-align: center;
+      flex-grow: 1;
+      padding: 0 15px;
+    }
+    .auth-professor {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .auth-codigo-label {
+      font-size: 8.5pt;
+      color: #333;
+      margin-bottom: 2px;
+    }
+    .auth-codigo-hash {
+      font-size: 9.5pt;
+      font-weight: bold;
+    }
+    .auth-qrcode img {
+      width: 85px;
+      height: 85px;
+      display: block;
+    }
+
+    /* Barra verde institucional inferior da imagem */
+    .barra-final-container {
+      position: absolute;
+      bottom: 15px;
+      left: 6px; 
+      right: 6px;
+    }
+    .linha-verde-fina {
+      height: 2px;
+      background-color: #2E7D32; 
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .tarja-verde-endereco {
+      background-color: #1B5E20; 
+      color: #ffffff;
+      font-size: 9pt;
+      padding: 8px 20px 8px 45px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 80%; 
+      margin-left: auto; 
+      clip-path: polygon(4% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .pin-localizacao {
+      margin-right: 8px;
+      width: 14px;
+      height: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- PAGINA 1 --- -->
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA - UNI-CET</h1>
+        <h2>PRÓ-REITORIA DE ENSINO GRADUAÇÃO E APRENDIZAGEM, CULTURA, RELAÇÃO COMUNITÁRIA E RESPONSABILIDADE SOCIAL</h2>
+      </div>
+    </div>
+
+    <div class="doc-title-container">
+      <div class="doc-title">PLANO DE DISCIPLINA</div>
+    </div>
+
+    <div class="section-title">1 - IDENTIFICAÇÃO</div>
+    <div class="info-grid">
+      <div class="info-item" style="grid-column: span 2;"><span class="info-label">Curso:</span><span class="info-value">{{curso_nome}}</span></div>
+      <div class="info-item"><span class="info-label">Oferta:</span><span class="info-value">{{curso_oferta}}</span></div>
+      <div class="info-item"><span class="info-label">Turma:</span><span class="info-value">{{turma_codigo}}</span></div>
+      <div class="info-item" style="grid-column: span 2;"><span class="info-label">Disciplina:</span><span class="info-value">{{disciplina_nome}}</span></div>
+      <div class="info-item"><span class="info-label">Carga Horária:</span><span class="info-value">{{carga_horaria_total}} ({{carga_teorica}} Teórica, {{carga_pratica}} Prática, {{carga_extensao}} Extensão)</span></div>
+      <div class="info-item"><span class="info-label">Período Letivo:</span><span class="info-value">{{periodo_letivo}}</span></div>
+      <div class="info-item" style="grid-column: span 2;"><span class="info-label">Docente:</span><span class="info-value">{{docente_nome}}</span></div>
+      <div class="info-item" style="grid-column: span 2;"><span class="info-label">E-mail:</span><span class="info-value">{{docente_email}}</span></div>
+    </div>
+
+    <div class="section-title">2 - EMENTA</div>
+    <p>{{ementa_texto}}</p>
+
+    <div class="section-title">3 - OBJETIVOS GERAIS</div>
+    <p>{{objetivos_gerais}}</p>
+
+    <div class="section-title">4 - OBJETIVOS ESPECÍFICOS</div>
+    <p>{{objetivos_especificos_introducao}}</p>
+    <ol>
+      {{#objetivos_especificos_lista}}
+      <li>{{objetivo_item}}</li>
+      {{/objetivos_especificos_lista}}
+    </ol>
+
+    <div class="page-footer">
+      <span>{{url_sistema_validacao}}</span>
+      <span>Página 1/3</span>
+    </div>
+  </div>
+
+  <!-- --- PAGINA 2 --- -->
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA - UNI-CET</h1>
+        <h2>{{coordenacao_nome}}</h2>
+      </div>
+    </div>
+
+    <div class="section-title">5 - COMPETÊNCIAS E HABILIDADES</div>
+    <p><strong>Competências Desenvolvidas:</strong></p>
+    <ul>
+      {{#competencias}}
+      <li>{{competencia_item}}</li>
+      {{/competencias}}
+    </ul>
+
+    <p style="margin-top: 10px;"><strong>Habilidades Desenvolvidas:</strong></p>
+    <ul>
+      {{#habilidades}}
+      <li>{{habilidade_item}}</li>
+      {{/habilidades}}
+    </ul>
+
+    <div class="section-title">6 - CONTEÚDO PROGRAMÁTICO</div>
+    {{#unidades_programaticas}}
+    <div class="unit-title">{{unidade_titulo}}</div>
+    <ul>
+      {{#topicos}}
+      <li>{{topico_nome}}</li>
+      {{/topicos}}
+    </ul>
+    {{/unidades_programaticas}}
+
+    <div class="section-title">7 - ESTRATÉGIAS METODOLÓGICAS</div>
+    <p>{{estrategias_metodologicas}}</p>
+
+    <div class="page-footer">
+      <span>{{url_sistema_validacao}}</span>
+      <span>Página 2/3</span>
+    </div>
+  </div>
+
+  <!-- --- PAGINA 3 --- -->
+  <div class="page">
+    <div class="header-container">
+      <img src="unicet_color.png" alt="UNI-CET" class="logo-img">
+      <div class="header-text">
+        <h1>CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA - UNI-CET</h1>
+        <h2>Plano de Disciplina - Avaliação e Referências</h2>
+      </div>
+    </div>
+
+    <div class="section-title">8 - RECURSOS</div>
+    <p>{{recursos_utilizados}}</p>
+
+    <div class="section-title">9 - AVALIAÇÃO DA APRENDIZAGEM</div>
+    <p>{{avaliacao_descricao}}</p>
+    <ul>
+      <li><strong>1ª Avaliação:</strong> {{avaliacao_1}}</li>
+      <li><strong>2ª Avaliação:</strong> {{avaliacao_2}}</li>
+      <li><strong>3ª Avaliação:</strong> {{avaliacao_3}}</li>
+    </ul>
+    <p style="margin-top: 8px;"><strong>Critérios de Aprovação:</strong></p>
+    <p>{{criticios_aprovacao_texto}}</p>
+
+    <div class="section-title">10 - REFERÊNCIAS</div>
+    <p><strong>Básicas:</strong></p>
+    <ul>
+      {{#referencias_basicas}}
+      <li>{{referencia_item}}</li>
+      {{/referencias_basicas}}
+    </ul>
+    <p style="margin-top: 8px;"><strong>Complementares:</strong></p>
+    <ul>
+      {{#referencias_complementares}}
+      <li>{{referencia_item}}</li>
+      {{/referencias_complementares}}
+    </ul>
+
+    <!-- --- SEÇÃO FINAL DE AUTENTICAÇÃO ATUALIZADA (IGUAL À IMAGEM) --- -->
+    <div style="font-size: 10pt; margin-left: 6px; margin-top: 25px;">
+      Teresina, Pi, {{documento_data_extenso}}
+    </div>
+
+    <div class="autenticacao-container">
+      <!-- Lado Esquerdo: Logo Circular Institucional -->
+      <img src="unicet_logo_circular.png" alt="UNI-CET" class="auth-logo">
+
+      <!-- Centro: Nome do Docente e Hash de Autenticação -->
+      <div class="auth-centro">
+        <div class="auth-professor">{{docente_nome}}</div>
+        <div class="auth-codigo-label">Código de validação:</div>
+        <div class="auth-codigo-hash">{{codigo_validacao}}</div>
+      </div>
+
+      <!-- Lado Direito: Geração dinâmica do QR Code via API -->
+      <div class="auth-qrcode">
+        <img src="https://quickchart.io/qr?text={{codigo_validacao}}&size=100&margin=0" alt="QR Code">
+      </div>
+    </div>
+
+    <!-- --- BARRA INSTITUCIONAL FINAL DO RODAPÉ (IGUAL À IMAGEM) --- -->
+    <div class="barra-final-container">
+      <div class="linha-verde-fina"></div>
+      
+      <div class="tarja-verde-endereco">
+        <!-- Ícone Vetorial do Marcador de Localização -->
+        <svg class="pin-localizacao" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        <span>Rua Rio Grande do Norte, 790 - Pirajá, Teresina - PI, 64003-420 | CNPJ: 02.565.348/0001-51</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
