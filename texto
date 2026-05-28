@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano de Disciplina - LÓGICA DE PROGRAMAÇÃO [cite: 2]</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 20px;
+        color: #000;
+        line-height: 1.5;
+    }
+    .page {
+        background-color: #fff;
+        max-width: 21cm; /* Tamanho A4 */
+        margin: 0 auto;
+        padding: 2cm;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .header {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+    .section-title {
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5px 20px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+    .grid-item strong {
+        margin-right: 5px;
+    }
+    .content-text {
+        text-align: justify;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    ul, ol {
+        margin-top: 0;
+        padding-left: 20px;
+        font-size: 14px;
+    }
+    .footer-signature {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    .footer-address {
+        text-align: center;
+        font-size: 12px;
+        margin-top: 30px;
+        border-top: 1px solid #000;
+        padding-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        UNICET CENTRO UNIVERSITÁRIO [cite: 3]<br>
+        CENTRO DE EDUCAÇÃO TECNOLÓGICA DE TERESINA - CET [cite: 4]<br>
+        CENTRO UNIVERSITÁRIO TECNOLÓGICO DE TERESINA-UNI-CET [cite: 5]<br>
+        PRÓ-REITORIA DE ENSINO GRADUAÇÃO E APRENDIZAGEM, CULTURA, RELAÇÃO COMUNITÁRIA E RESPONSABILIDADE SOCIAL [cite: 6]<br>
+        COORDENAÇÃO DE SISTEMAS PARA INTERNET [cite: 6]<br><br>
+        PLANO DE DISCIPLINA [cite: 12]
+    </div>
+
+    <div class="section-title">1 - IDENTIFICAÇÃO [cite: 7]</div>
+    <div class="grid-container">
+        <div class="grid-item"><strong>Curso:</strong> SISTEMAS PARA INTERNET [cite: 8]</div>
+        <div class="grid-item"><strong>Disciplina:</strong> LÓGICA DE PROGRAMAÇÃO [cite: 13]</div>
+        <div class="grid-item"><strong>Oferta:</strong> Semestral [cite: 9]</div>
+        <div class="grid-item"><strong>Carga Horária:</strong> 80 (28 Teórica: 43 Prática, 8 Extensão) [cite: 14]</div>
+        <div class="grid-item"><strong>Turma:</strong> S-S101 [cite: 10]</div>
+        <div class="grid-item"><strong>Período Letivo:</strong> 2026.1 [cite: 15]</div>
+        <div class="grid-item"><strong>Docente:</strong> MARIO RODRIGUES GOMES MEIRELES FILHO [cite: 11]</div>
+        <div class="grid-item"><strong>E-mail:</strong> professor47@faculdadecet.edu.br [cite: 16]</div>
+    </div>
+
+    <div class="section-title">2 - EMENTA [cite: 17]</div>
+    <div class="content-text">
+        Fundamentos da lógica de programação e do pensamento computacional aplicados à resolução de problemas no contexto de sistemas para internet. [cite: 18] Algoritmos, dados, variáveis e operadores. Estruturas de controle sequencial, condicional e de repetição. Estruturas de dados básicas. [cite: 19] Representação e construção de algoritmos via pseudocódigo (Portugol), fluxogramas e linguagens Python, PHP e JavaScript. [cite: 20] Modularização, organização de código e boas práticas de lógica. Aplicações práticas em problemas reais do desenvolvimento web. [cite: 21] Atividades de extensão integradas à comunidade para solução de demandas sociais e tecnológicas. [cite: 22]
+    </div>
+
+    <div class="section-title">3 - OBJETIVOS GERAIS [cite: 23]</div>
+    <div class="content-text">
+        Desenvolver no estudante a capacidade de analisar problemas, estruturar soluções algoritmicas e aplicar a lógica de programação de forma independente de linguagem, com foco nas demandas do desenvolvimento de sistemas para internet. [cite: 24]
+    </div>
+
+    <div class="section-title">4 - OBJETIVOS ESPECÍFICOS [cite: 25]</div>
+    <div class="content-text">
+        Compreender os fundamentos da logica de programação e do pensamento computacional: [cite: 26]
+    </div>
+    <ol>
+        <li>Elaborar algoritmos utilizando pseudocódigo e fluxogramas; [cite: 27]</li>
+        <li>Aplicar estruturas de decisão, repetição e dados básicos na resolução de problemas; [cite: 28]</li>
+        <li>Transpor soluções algoritmicas para linguagens voltadas ao ambiente web (Python, PHP e JavaScript); [cite: 29]</li>
+        <li>Relacionar os conhecimentos técnicos à solução de demandas reais por meio de atividades extensionistas. [cite: 30]</li>
+    </ol>
+
+    <div class="section-title">5 - COMPETÊNCIAS E HABILIDADES [cite: 31]</div>
+    <div class="content-text"><strong>COMPETÊNCIAS DESENVOLVIDAS</strong> [cite: 32]</div>
+    <ul>
+        <li>Analisar problemas computacionais e propor soluções lógicas e estruturadas [cite: 33]</li>
+        <li>Aplicar princípios de lógica de programação independentemente de linguagem [cite: 34]</li>
+        <li>Utilizar estruturas de controle e dados básicos na construção de algoritmos [cite: 35]</li>
+        <li>Transpor soluções algoritmicas para linguagens de programação utilizadas em sistemas web [cite: 36]</li>
+        <li>Relacionar o conhecimento técnico às demandas do contexto social por meio de ações extensionistas [cite: 37]</li>
+    </ul>
+
+    <div class="content-text"><strong>HABILIDADES DESENVOLVIDAS</strong> [cite: 38]</div>
+    <ul>
+        <li>Elaborar algoritmos utilizando pseudocódigo e fluxogramas [cite: 39]</li>
+        <li>Empregar estruturas condicionais e de repetição de forma adequada [cite: 40]</li>
+        <li>Organizar soluções computacionais com clareza, legibilidade e eficiência [cite: 41]</li>
+        <li>Resolver problemas práticos relacionados ao desenvolvimento de sistemas para internet [cite: 42]</li>
+        <li>Trabalhar de forma colaborativa em atividades práticas e de extensão [cite: 43]</li>
+    </ul>
+
+    <div class="section-title">6 - CONTEÚDO PROGRAMÁTICO [cite: 44]</div>
+    <div class="content-text">
+        <strong>Unidade 1 - Fundamentos da Lógica e Algoritmos</strong> [cite: 45]<br>
+        Pensamento computacional [cite: 46] | Conceito e características de algoritmos [cite: 47] | Representação algorítmica: linguagem natural, fluxogramas e Portugol | Análise de Algoritmo [cite: 48]<br><br>
+        
+        <strong>Unidade II - Elementos Básicos da Programação</strong> [cite: 49]<br>
+        Tipos de dados [cite: 50] | Variáveis e constantes [cite: 51] | Operadores aritméticos, relacionais e lógicos [cite: 52]<br><br>
+
+        <strong>Unidade III - Estruturas de Controle</strong> [cite: 53]<br>
+        Estruturas de Controle [cite: 54] | Estruturas condicionais [cite: 55] | Estruturas de repetição [cite: 59]<br><br>
+
+        <strong>Unidade IV - Estruturas de Dados Básicas</strong> [cite: 60]<br>
+        Vetores e matrizes [cite: 61] | Introdução a listas, pilhas e filas [cite: 62] | Aplicações práticas no contexto web [cite: 63]<br><br>
+
+        <strong>Unidade V - Transposição para Linguagens Web</strong> [cite: 64]<br>
+        Aplicação da lógica em Python, PHP e JavaScript [cite: 65] | Comparação lógica entre linguagens [cite: 66] | Boas práticas e organização do código [cite: 67]
+    </div>
+
+    <div class="section-title">7 - ESTRATÉGIAS METODOLÓGICAS [cite: 68]</div>
+    <div class="content-text">
+        <strong>SALA DE AULA INVERTIDA</strong> [cite: 70]<br>
+        Será utilizado como atividade de leitura e interpretação o texto "Lógica de Programação", capítulo 1, páginas 1-21, dos autores Costa et al. (2015). [cite: 71, 72] Referência: MARTINI, Marcos, MARIN Regina, Desafios na aprendizagem de lógica de programação entre estudantes de tecnologia: uma revisão sistemática da literatura. Revista Eletrônica EDAPECI, 2024. [cite: 73, 74] Leitura do Livros Algoritmos e Programação de Computadores, minha biblioteca endereço eletrônico: https://ead.cet.edu.br/mod/url/view.php?id=112747. [cite: 74]
+    </div>
+    <div class="content-text">
+        <strong>ATIVIDADES PRESENCIAL</strong> [cite: 74]<br>
+        Serão contemplados os conteúdos explorados: Na Unidade e as habilidades desenvolvidas em sala de aula, com ênfase no pensamento computacional e na construção de algoritmos. [cite: 75, 76] As atividades serão desenvolvidas por meio da metodologia de sala de aula invertida (flipped classroom), em consonância com a proposta pedagógica do UNI-CET, na qual os estudantes terão contato prévio com materiais introdutórios, possibilitando maior aprofundamento durante os encontros presenciais. [cite: 77] Em sala, serão realizadas exposições dialogadas, resolução de problemas contextualizados, construção coletiva de algoritmos e elaboração de fluxogramas e pseudocódigos em Portugol. [cite: 78] Os estudantes atuarão em equipes para discutir diferentes formas de representação algorítmica. [cite: 79] Como atividade extraclasse, os discentes realizarão exercícios práticos, pesquisas orientadas e produção de algoritmos. [cite: 80] Os instrumentos avaliativos serão coerentes com o trabalho desenvolvido. [cite: 81]<br><br>
+        
+        Na Unidade II, Serão contemplados os conteúdos relativos aos tipos de dados, variáveis, constantes e operadores. [cite: 82] As atividades serão conduzidas por meio de estratégias ativas. [cite: 83] A abordagem em sala envolverá exposição dialogada, resolução de exercícios práticos, simulações computacionais e atividades em grupo. [cite: 84] Serão utilizadas ferramentas digitais e ambientes de programação introdutórios. [cite: 85] Como aprofundamento, os estudantes desenvolverão atividades extraclasse voltadas à resolução de listas de exercícios. [cite: 86] Também serão incentivadas consultas em biblioteca física e digital. [cite: 87]<br><br>
+
+        Na Unidade III, serão contemplados os conteúdos relacionados às estruturas sequenciais, condicionais e de repetição. As atividades presenciais serão desenvolvidas por meio de resolução de problemas e estudos de caso. [cite: 88] A metodologia adotada privilegiará a aprendizagem baseada em problemas (Problem-Based Learning - PBL). [cite: 89] Serão realizadas atividades práticas com simulações e testes de algoritmos. [cite: 90] Em equipe, os alunos discutirão abordagens para um mesmo problema. Como atividades extraclasse, serão propostas listas de exercícios e pequenas produções aplicadas ao web. [cite: 91] Os instrumentos avaliativos considerarão a capacidade de estruturar soluções. [cite: 92]<br><br>
+
+        Na Unidade IV, Serão contemplados os conteúdos referentes a vetores, matrizes, listas, pilhas e filas. [cite: 93] As atividades em sala serão desenvolvidas por meio de exposições dialogadas e resolução de exercícios práticos. [cite: 94] Especialmente no contexto de sistemas web, os estudantes modelarão problemas utilizando diferentes estruturas. [cite: 95] Serão realizadas atividades práticas com implementação em pseudocódigo e linguagens. [cite: 96] A aprendizagem colaborativa será estimulada. [cite: 97]<br><br>
+
+        Na unidade V, Serão contemplados os conteúdos relacionados à aplicação da lógica de programação em linguagens web (Python, PHP, JavaScript). [cite: 98] As atividades envolverão demonstrações práticas, codificação orientada e comparação entre linguagens. [cite: 99] Estudantes participarão em equipe para desenvolver programas. [cite: 100] Será adotada abordagem com foco em boas práticas e organização de código. [cite: 101]
+    </div>
+    <div class="content-text">
+        <strong>EXTENSÃO</strong> [cite: 102]<br>
+        1. Serão trabalhos presenciais efetivos de extensão computado em 10% da carga horária da disciplina, executados pelos estudantes com orientação docente. [cite: 103] Os trabalhos focam na articulação da comunidade acadêmica com a sociedade. [cite: 104] As atividades serão desenvolvidas através de programas, projetos, cursos, oficinas, ou prestação de serviços. [cite: 105]<br>
+        2. Como Sugestão para as Extensões: [cite: 106]<br>
+        3. Desenvolvimento de soluções algorítmicas simples para demandas reais da comunidade. [cite: 107]<br>
+        4. Oficinas, minicursos ou ações educativas envolvendo lógica de programação; [cite: 108]<br>
+        5. Relatório reflexivo evidenciando a aplicação do conhecimento técnico e o impacto social da ação. [cite: 109]
+    </div>
+
+    <div class="section-title">8 - RECURSOS [cite: 110]</div>
+    <div class="content-text">
+        <strong>PRESENCIAIS</strong> [cite: 111]<br>
+        Sala de aula, projetor multimidia, acesso à internet, smartphones e/ou notebooks, livros e periódicos, visitas técnicas e laboratórios para aulas práticas. [cite: 112]
+    </div>
+
+    <div class="section-title">9 - AVALIAÇÃO DA APRENDIZAGEM [cite: 113]</div>
+    <div class="content-text">
+        No decorrer do período letivo são desenvolvidas 03 (três) avaliações teóricas, 03 (três) avaliações práticas, 1 atividade de extensão e 1 avaliação integrada: [cite: 114]<br>
+        1ª Avaliação: Prova Escrita (8,0 pontos) e Trabalhos em Sala de Aula (2,0 pontos); [cite: 115]<br>
+        2ª Avaliação: Prova Escrita (8,0 pontos) e Trabalhos em Sala de Aula (2,0 pontos); [cite: 116]<br>
+        3ª Avaliação: Desenvolvimento de um projeto de Sistema (5,0 pontos), Relatório Científico (2,0 pontos), Atividade de Extensão (2,0 pontos) e Avaliação Integrada (1,0 ponto). [cite: 117]<br><br>
+        Média parcial >= 7 e frequência >= 75%, aprovado por média. Frequência < 75%, reprovado por faltas. [cite: 118] Média parcial < 4, reprovado por nota. Média parcial >= 4 e < 7, exame final. [cite: 119] Média final >= 6.0 e frequência >= 75% aprovado. São aplicadas avaliações dos tipos: provas teóricas, provas práticas, seminários, trabalhos individuais ou em grupo e outras atividades. [cite: 120] O exame final é, obrigatoriamente, prova escrita e não há segunda chamada. [cite: 121]
+    </div>
+
+    <div class="section-title">10 - REFERÊNCIAS [cite: 125]</div>
+    <div class="content-text">
+        <strong>BÁSICA</strong> [cite: 126]<br>
+        MANZANO, José Augusto Navarro G. OLIVEIRA, Jayr Figueiredo de. Algoritmos: Lógica para Desenvolvimento de Programação de Computadores. ERICA: Editora Saraiva, 2019 E-book ISBN 9788536531472. [cite: 128, 129]<br>
+        SOUZA, Marco A. Furlan de GOMES, Marcelo M., SOARES, Marcio V., CONCILIO, Ricardo. Algoritmos e lógica de programação: um texto introdutório para a engenharia. CENGAGE Learning Brasil, 2019. E-book, ISBN 9788522128150. [cite: 130, 131, 132]<br>
+        SOARES, Walace PHP 5 Conceitos, Programação e Integração com Banco de Dados. ERICA: Editora Saraiva, 2013 E-book ISBN 9788536505633. [cite: 133]
+    </div>
+    <div class="content-text">
+        <strong>COMPLEMENTARES</strong> [cite: 135]<br>
+        AGUILAR. Luis J. Fundamentos de programação. MCGRAWHILL: Grupo A, 2008. E-book ISBN 9788580550146. [cite: 136]<br>
+        MANZANO, José Augusto Navarro G JUNIOR, Roberto Affonso da C. Programação de computadores com java 1ª edição 2014. Editora Saraiva 2014 E-book ISBN 9788536531137. [cite: 138]<br>
+        ALVES, William P. Linguagem e Lógica de Programação. São Paulo: SRV Editora LTDA, 2013. E-book ISBN 9788536519371. [cite: 140]<br>
+        CORMEN, Thomas. Desmistificando Algoritmos. Rio de Janeiro Grupo GEN, 2013. E-book ISBN 9788595153929. [cite: 141]
+    </div>
+
+    <div class="footer-signature">
+        Teresina, PI. 06-05-2026 [cite: 143]<br>
+        UNI-CET [cite: 144]<br><br>
+        ____________________________________________________<br>
+        MÁRIO RODRIGUES GOMES MEIRELES FILHO [cite: 145]
+    </div>
+
+    <div class="footer-address">
+        Código de validação: U385E1F05N06P2026154036 [cite: 146]<br>
+        Rua Rio Grande do Norte, 790-Pirajá, Teresina - PI, 64003-420 | CNPJ: 02.565.348/0001-51 [cite: 147]
+    </div>
+</div>
+
+</body>
+</html>
